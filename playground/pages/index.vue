@@ -9,6 +9,14 @@
     <button v-sk-analytics="{ event: 'sendDirective' }">
       Send directive
     </button>
+
+    <RouterLink :to="{ name: 'page1' }">
+      Go to Page 1
+    </RouterLink>
+
+    <RouterLink :to="{ name: 'page2' }">
+      Go to Page 2
+    </RouterLink>
   </div>
 </template>
 
