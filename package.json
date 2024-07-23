@@ -1,0 +1,53 @@
+{
+  "name": "@skyanalytics/nuxt",
+  "version": "1.0.0",
+  "author": "Carlos Eduardo Umaña Acevedo <cumana3098@gmail.com>",
+  "license": "MIT",
+  "description": "SkyAnalytics NUXT is an adapter for [SkyAnalytics]",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carum98/skyanalytics-nuxt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/carum98/skyanalytics-nuxt.git/issues"
+  },
+  "homepage": "https://github.com/carum98/skyanalytics-nuxt.git#readme",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.12.4",
+    "@skyanalytics/js": "github:carum98/skyanalytics-js"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.3.9",
+    "@nuxt/eslint-config": "^0.3.13",
+    "@nuxt/module-builder": "^0.8.1",
+    "@nuxt/schema": "^3.12.4",
+    "@nuxt/test-utils": "^3.13.1",
+    "@types/node": "^20.14.11",
+    "changelogen": "^0.5.5",
+    "eslint": "^9.7.0",
+    "nuxt": "^3.12.4",
+    "typescript": "latest",
+    "vue-tsc": "^2.0.26"
+  }
+}
