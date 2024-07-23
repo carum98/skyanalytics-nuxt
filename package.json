@@ -36,7 +36,8 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.4",
-    "@skyanalytics/js": "github:carum98/skyanalytics-js"
+    "@skyanalytics/js": "github:carum98/skyanalytics-js",
+    "defu": "6.1.4"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.3.9",
