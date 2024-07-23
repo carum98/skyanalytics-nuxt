@@ -12,10 +12,16 @@ export default defineNuxtConfig({
   modules: ['@skyanalytics/nuxt'],
   skyanalytics: {
     key: 'source_key',
-    host: 'http://localhost:3000'
+    host: 'http://localhost:3000',
+    captureNavigation: false,
   },
 });
 ```
+
+### Module options
+- `key` - The source key of your SkyAnalytics instance.
+- `host` - The host of your SkyAnalytics instance.
+- `captureNavigation` - Capture navigation events automatically. Default: `true`.
 
 ## Usage
 

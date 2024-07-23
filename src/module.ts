@@ -1,9 +1,9 @@
 import { defineNuxtModule, addPlugin, createResolver, addImports } from '@nuxt/kit'
-import type { SkyAnalyticsOptions } from '@skyanalytics/js/dist/types.js'
 import { defu } from 'defu'
 import { name, version } from '../package.json'
+import type { ModuleOptions } from './runtime/types'
 
-export default defineNuxtModule<SkyAnalyticsOptions>({
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name,
     version,
@@ -12,19 +12,26 @@ export default defineNuxtModule<SkyAnalyticsOptions>({
   defaults: {
     host: '',
     key: '',
+    captureNavigation: true,
   },
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
 
     // Add module options to public runtime config
     nuxt.options.runtimeConfig.public.skyanalytics = defu(
-      nuxt.options.runtimeConfig.public.skyanalytics as Required<SkyAnalyticsOptions>,
+      nuxt.options.runtimeConfig.public.skyanalytics as ModuleOptions,
       options,
     )
 
     // Add plugin
     addPlugin({
-      src: resolve('runtime/plugin'),
+      src: resolve('runtime/plugin.client'),
+      mode: 'client',
+    })
+
+    // Add directive
+    addPlugin({
+      src: resolve('runtime/directives'),
     })
 
     // Add composable
