@@ -1,5 +1,4 @@
 import { defineNuxtModule, addPlugin, createResolver, addImports } from '@nuxt/kit'
-import { defu } from 'defu'
 import { name, version } from '../package.json'
 import type { ModuleOptions } from './runtime/types'
 
@@ -18,10 +17,10 @@ export default defineNuxtModule<ModuleOptions>({
     const { resolve } = createResolver(import.meta.url)
 
     // Add module options to public runtime config
-    nuxt.options.runtimeConfig.public.skyanalytics = defu(
-      nuxt.options.runtimeConfig.public.skyanalytics as ModuleOptions,
-      options,
-    )
+    nuxt.options.runtimeConfig.public.skyanalytics = {
+      ...nuxt.options.runtimeConfig.public.skyanalytics,
+      ...options,
+    };
 
     // Add plugin
     addPlugin({

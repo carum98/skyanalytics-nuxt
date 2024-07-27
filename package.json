@@ -1,6 +1,6 @@
 {
   "name": "@skyanalytics/nuxt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Carlos Eduardo Umaña Acevedo <cumana3098@gmail.com>",
   "license": "MIT",
   "description": "SkyAnalytics NUXT is an adapter for [SkyAnalytics]",
@@ -33,15 +33,13 @@
     "release": "npm run prepack && npm publish --access public && git push --follow-tags"
   },
   "dependencies": {
-    "@skyanalytics/js": "github:carum98/skyanalytics-js",
     "@nuxt/kit": "^3.11.2",
-    "defu": "^6.1.4"
+    "@skyanalytics/js": "1.0.0"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.8.1",
     "@nuxt/schema": "^3.12.4",
     "@types/node": "^20.14.11",
-    "changelogen": "^0.5.5",
     "nuxt": "^3.12.4",
     "typescript": "^5.5.4",
     "vue-tsc": "^2.0.26"
